@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c824593e-652d-4a00-a4df-0b00b311ce57" name="hetzner" url="http://leonardrichertz-web.de/">
+        <fileTransfer rootFolder="/public_html" accessType="SFTP" host="www497.your-server.de" port="22" sshConfigId="1f67a5fe-c589-4c2a-8d47-7e931f6d1812" sshConfig="leonarb@www497.your-server.de:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="4beb34ee-abba-4ac9-9b04-0a28370a5d71" name="local" url="http://localhost">
+        <fileTransfer mountedRoot="C:\xampp\htdocs\web_entwicklung" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+    <groups>
+      <group>
+        <name>ToDo</name>
+        <servers>
+          <name value="hetzner" />
+          <name value="local" />
+        </servers>
+      </group>
+    </groups>
+  </component>
+</project>
