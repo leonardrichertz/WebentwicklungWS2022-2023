@@ -6,16 +6,12 @@
   <link href="https://unpkg.com/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-<?php
-    $name="Projekte";
-    include("ueberschrift.php");
-?>
 
 <div class="container-fluid">
   <div class="row">
 
     <div class="col-2">
-        <?php include("menu.html"); ?>
+        <?php echo view('templates/menu.php');?>
     </div>
 
     <div class="col-8">
@@ -70,7 +66,7 @@
           </div>
           </br>
             <fieldset class="mt-4">
-                <?php include("SpeichernUndReset.html"); ?>
+                <?php echo view("templates/SpeichernUndReset.html"); ?>
             </fieldset>
         </form>
       </div>

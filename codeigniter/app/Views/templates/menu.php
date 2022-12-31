@@ -1,20 +1,20 @@
 <ul class="list-group">
     <li class="list-group-item">
-        <a href="Login.php"> Login </a>
+        <a href="login"> Login </a>
     </li>
     <li class="list-group-item">
-        <a href="Projekte.php"> Projekte </a>
+        <a href="projekte"> Projekte </a>
     </li>
     <li class="list-group-item">
-        <a href="index.php"> Aktuelles Projekt </a>
+        <a href="todo"> Aktuelles Projekt </a>
     </li>
     <li class="list-group-item" style="margin-left: 40px">
-        <a href="Reiter.php"> Reiter </a>
+        <a href="reiter"> Reiter </a>
     </li>
     <li class="list-group-item" style="margin-left: 40px">
-        <a href="Aufgaben.php"> Aufgaben </a>
+        <a href="aufgaben"> Aufgaben </a>
     </li>
     <li class="list-group-item" style="margin-left: 40px">
-        <a href="Personen.php"> Mitglieder </a>
+        <a href="personen"> Mitglieder </a>
     </li>
 </ul>

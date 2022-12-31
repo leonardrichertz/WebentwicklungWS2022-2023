@@ -9,10 +9,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-<?php
-    $name="Aufgaben";
-    include("ueberschrift.php");
-?>
 
 <?php
 $aufgaben=array(
@@ -55,7 +51,7 @@ $aufgaben=array(
     <div class="row">
 
         <div class="col-2">
-            <?php include("menu.html"); ?>
+            <?php echo view("templates/menu.php"); ?>
         </div>
 
         <div class="col-8">
@@ -80,7 +76,7 @@ $aufgaben=array(
                             <td> <?php echo $aufgabe['beschreibung'] ?></td>
                             <td> <?php echo $aufgabe['reiter'] ?></td>
                             <td> <?php echo $aufgabe['zustaendig'] ?></td>
-                            <td style="text-align: right"> <?php include("EditUndDelete.html"); ?></td>
+                            <td style="text-align: right"> <?php echo view("templates/EditUndDelete.html"); ?></td>
                         </tr>
                     <?php endforeach;?>
 
@@ -143,7 +139,7 @@ $aufgaben=array(
                     </div>
                     </br>
                     <fieldset class="mt-4">
-                        <?php include("SpeichernUndReset.html"); ?>
+                        <?php echo view("templates/SpeichernUndReset.html"); ?>
                     </fieldset>
                 </form>
             </div>

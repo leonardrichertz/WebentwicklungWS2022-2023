@@ -9,31 +9,12 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-<?php
-    $name="Personen";
-    include("ueberschrift.php");
-?>
-
-<?php
-    $personen=array(
-            array(
-                'name' => 'Max Mustermann',
-                'E-Mail' => 'mustermann@muster.de'
-            ),
-            array(
-                'name' => 'Petra Müller',
-                'E-Mail' => 'petra@mueller.de'
-            )
-    );
-
-    //var_dump($personen);
-?>
 
 <div class="container-fluid">
   <div class="row">
 
     <div class="col-2">
-        <?php include("menu.html"); ?>
+        <?php echo view('templates/menu.php'); ?>
     </div>
 
     <div class="col-8">
@@ -50,21 +31,18 @@
           </thead>
         </thead>
         <tbody>
-          <?php
-            foreach($personen as $person): ?>
+          <?foreach ($data as $item):?>
                 <tr>
-                    <td> <?php echo $person['name'] ?></td>
-                    <td> <?php echo $person['E-Mail'] ?></td>
+                    <td> <? echo $item['name']?></td>
+                    <td> <? echo $item['email']?></td>
                     <td>
                         <form>
                             <input type="checkbox" id="tabellecheckbox1">
                         </form>
                     </td>
-                    <td style="text-align: right"> <?php include("EditUndDelete.html"); ?></td>
+                    <td style="text-align: right"> <?php echo view('templates/EditUndDelete.html'); ?></td>
                 </tr>
-          <?php endforeach;?>
-
-          </tbody>
+          <? endforeach;?>
         </table>
       </div>
 
@@ -102,7 +80,7 @@
           </div>
           </br>
             <fieldset class="mt-4">
-                <?php include("SpeichernUndReset.html"); ?>
+                <?php  echo view('templates/SpeichernUndReset.html'); ?>
             </fieldset>
         </form>
       </div>

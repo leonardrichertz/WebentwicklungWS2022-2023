@@ -9,16 +9,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-<?php
-    $name="Reiter";
-    include("ueberschrift.php");
-?>
 
 <div class="container-fluid">
     <div class="row">
 
         <div class="col-2">
-            <?php include("menu.html"); ?>
+            <?php echo view('templates/menu.php');?>
         </div>
 
         <div class="col-8">
@@ -37,21 +33,21 @@
                         <td>ToDo</td>
                         <td>Dinge die erledigt werden müssen</td>
                         <td style="text-align: right">
-                            <?php include("EditUndDelete.html"); ?>
+                            <?php echo view('templates/EditUndDelete.html');?>
                         </td>
                     </tr>
                     <tr>
                         <td>Erledigt</td>
                         <td>Dinge die erledigt sind</td>
                         <td style="text-align: right">
-                            <?php include("EditUndDelete.html"); ?>
+                            <?php  echo view('templates/EditUndDelete.html'); ?>
                         </td>
                     </tr>
                     <tr>
                         <td>Verschoben</td>
                         <td>Dinge die später erledigt werden</td>
                         <td style="text-align: right">
-                            <?php include("EditUndDelete.html"); ?>
+                            <?php  echo view('templates/EditUndDelete.html'); ?>
                         </td>
                     </tr>
                     </tbody>
@@ -81,7 +77,7 @@
                     </div>
                     </br>
                     <fieldset class="mt-4">
-                        <?php include("SpeichernUndReset.html"); ?>
+                        <?php echo view('templates/SpeichernUndReset.html');?>
                     </fieldset>
                 </form>
             </div>

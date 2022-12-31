@@ -8,10 +8,6 @@
 </head>
 <body>
 
-<?php
-    $name="Todos (Aktuelles Projekt)";
-    include("ueberschrift.php");
-?>
 
 <?php
     $todos=array(
@@ -28,7 +24,7 @@
         <div class="row">
 
             <div class="col-2">
-                <?php include("menu.html"); ?>
+                <?php echo view('templates/menu.php');?>
             </div>
 
             <div class="col">

@@ -6,10 +6,6 @@
     <link href="https://unpkg.com/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-<?php
-    $name="Login";
-    include("ueberschrift.php");
-?>
 
 <div class="container-fluid">
   <div class="row">
@@ -40,16 +36,16 @@
         <form>
           <div class="form-group">
             <input type="checkbox" id="checkbox">
-            <label for="checkbox"> AGBs und Datenschutzbedingung akzeptieren </label>
+            <label for="checkbox"> AGBs und Datenschutzbedingung akzeptieren</label>
           </div>
           </br>
           <button type="submit" class="btn btn-primary">
             Einloggen
           </button>
           </br>
-          Noch nicht registriert? Registrierung </br>
+          Noch nicht registriert? <a href="registrierung">Registrierung</a> </br>
           </br>
-          Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="index.php"> Überspringen </a>
+          Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="todo"> Überspringen </a>
         </form>
       </div>
       </br>
