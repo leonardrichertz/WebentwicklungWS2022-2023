@@ -31,18 +31,15 @@
           </thead>
         </thead>
         <tbody>
-          <?foreach ($data as $item):?>
-                <tr>
-                    <td> <? echo $item['name']?></td>
-                    <td> <? echo $item['email']?></td>
-                    <td>
-                        <form>
-                            <input type="checkbox" id="tabellecheckbox1">
-                        </form>
-                    </td>
-                    <td style="text-align: right"> <?php echo view('templates/EditUndDelete.html'); ?></td>
-                </tr>
-          <? endforeach;?>
+          <?php foreach ($mitglieder as $item){
+                echo '<tr>';
+                    echo '<td>'.$item['Name'].'</td>';
+                    echo '<td>'.$item['Email'].'</td>';
+                    echo ('<td><form><input type="checkbox" id="tabellecheckbox1"></form></td');
+                    echo ('<td style="text-align: right">');
+                    echo view('templates/EditUndDelete.html');
+                    echo ("</td>.</tr>");
+          }?>
         </table>
       </div>
 
