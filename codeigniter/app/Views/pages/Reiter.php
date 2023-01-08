@@ -33,21 +33,21 @@
                         <td>ToDo</td>
                         <td>Dinge die erledigt werden müssen</td>
                         <td style="text-align: right">
-                            <?php echo view('templates/EditUndDelete.html');?>
+                            <?php echo view('templates/EditUndDelete.php');?>
                         </td>
                     </tr>
                     <tr>
                         <td>Erledigt</td>
                         <td>Dinge die erledigt sind</td>
                         <td style="text-align: right">
-                            <?php  echo view('templates/EditUndDelete.html'); ?>
+                            <?php  echo view('templates/EditUndDelete.php'); ?>
                         </td>
                     </tr>
                     <tr>
                         <td>Verschoben</td>
                         <td>Dinge die später erledigt werden</td>
                         <td style="text-align: right">
-                            <?php  echo view('templates/EditUndDelete.html'); ?>
+                            <?php  echo view('templates/EditUndDelete.php'); ?>
                         </td>
                     </tr>
                     </tbody>

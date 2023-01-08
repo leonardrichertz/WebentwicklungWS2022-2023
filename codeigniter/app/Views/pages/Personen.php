@@ -16,9 +16,7 @@
     <div class="col-2">
         <?php echo view('templates/menu.php'); ?>
     </div>
-
     <div class="col-8">
-
       <div class="row">
         <table class="table table-responsive">
           <thead class="table-light">
@@ -33,47 +31,38 @@
         <tbody>
           <?php foreach ($mitglieder as $item){
                 echo '<tr>';
-                    echo '<td>'.$item['Name'].'</td>';
-                    echo '<td>'.$item['Email'].'</td>';
+                    echo '<td>'.$item['username'].'</td>';
+                    echo '<td>'.$item['email'].'</td>';
                     echo ('<td><form><input type="checkbox" id="tabellecheckbox1"></form></td');
                     echo ('<td style="text-align: right">');
-                    echo view('templates/EditUndDelete.html');
+                    echo view('templates/EditUndDelete.php');
                     echo ("</td>.</tr>");
           }?>
         </table>
       </div>
-
       <div class="row">
-        <form>
+        <form method="post" action="<?php echo site_url('personen/getIndex');?>">
           <div class="form-group">
             <label><h4>Bearbeiten/Erstellen</h4></label>
-            <form>
               <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" placeholder="Username" class="form-control" id="username">
+                <input type="text" placeholder="Username" class="form-control" id="username" name="username">
               </div>
-            </form>
             </br>
-            <form>
               <div class="form-group">
                 <label for="email">E-Mail-Adresse:</label>
-                <input type="text" placeholder="E-Mail-Adresse eingeben" class="form-control" id="email">
+                <input type="text" placeholder="E-Mail-Adresse eingeben" class="form-control" id="email" name="email">
               </div>
-            </form>
             </br>
-            <form>
               <div class="form-group">
                 <label for="passwort">Passwort:</label>
-                <input type="password" placeholder="Passwort" class="form-control" id="passwort">
+                <input type="password" placeholder="Passwort" class="form-control" id="passwort" name="passwort">
               </div>
-            </form>
             </br>
-            <form>
               <div class="form-group">
                 <input type="checkbox" id="checkbox">
                 <label for="checkbox"> Dem Projekt zugeordnet</label>
               </div>
-            </form>
           </div>
           </br>
             <fieldset class="mt-4">

@@ -12,34 +12,33 @@
 
         <div class="col-2">
         </div>
-
         <div class="col-8">
             <div class="row">
-                <form>
+                <form method="post" action="login/register">
                     <div class="form-group">
-                        <label for="email1">E-Mail</label>
-                        <input type="email" placeholder="Email-Adresse eingeben" class="form-control" id="email1">
+                        <label for="email">E-Mail</label>
+                        <input type="email" placeholder="Email-Adresse eingeben" class="form-control" id="email" name="email">
                     </div>
-                </form>
             </div>
             <div class="row">
-                <form>
+                    <div class="form-group">
+                        <label for="username">Benutzernamen</label>
+                        <input type="text" placeholder="Benutzernamen eingeben" class="form-control" id="username" name="username">
+                    </div>
+            </div>
+            <div class="row">
                     <div class="form-group">
                         <label for="passwort">Passwort</label>
-                        <input type="password" placeholder="Passwort" class="form-control" id="passwort">
+                        <input type="password" placeholder="Passwort" class="form-control" id="passwort" name="passwort">
                     </div>
-                </form>
             </div>
             <div class="row">
-                <form>
                     <div class="form-group">
                         <label for="passwort-bestätigt">Passwort erneut eingeben</label>
-                        <input type="password" placeholder="Passwort" class="form-control" id="passwort-bestätigt">
+                        <input type="password" placeholder="Passwort" class="form-control" id="passwort-bestätigt" name="passwort-bestätigt">
                     </div>
-                </form>
             </div>
             <div class="row">
-                <form>
                     <div class="form-group">
                         <input type="checkbox" id="checkbox">
                         <label for="checkbox"> AGBs und Datenschutzbedingung akzeptieren </label>

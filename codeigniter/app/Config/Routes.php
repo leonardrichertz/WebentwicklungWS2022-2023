@@ -38,6 +38,17 @@ $routes->setAutoRoute(true);
 //$routes->get('/', 'Home::index');
 $routes->get('/', 'Login::index');
 $routes->get('/login', 'Login::index');
+$routes->get('/login/register', 'Login::register');
+$routes->get('personen/ced_edit', 'Personen::ced_edit');
+$routes->get('/todo', 'Todo::getIndex');
+$routes->get('login/logout', 'Login::logout');
+
+$routes->add('personen/ced_edit/(:num)', 'Personen::ced_edit/$2');
+$routes->add('personen/ced_edit/(:num)/(:num)', 'Personen::ced_edit/$1/$2');
+$routes->add('personen', 'Personen::getIndex');
+$routes->post('/login/index', 'Login::index');
+$routes->post('/login/register', 'Login::register');
+$routes->post('/personen/getIndex', 'Personen::getIndex');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

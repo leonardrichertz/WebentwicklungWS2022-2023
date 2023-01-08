@@ -6,13 +6,13 @@ class PersonenModel extends Model {
 
 
     public function getPersonen($person_id = NULL) {
-        $this->personen = $this->db->table('personen');
+        $this->personen = $this->db->table('mitglieder');
         $this->personen->select('*');
 
         IF ($person_id != NULL)
             $this->personen->where('personen.id', $person_id);
 
-        $this->personen->orderBy('Name');
+        $this->personen->orderBy('username');
         $result = $this->personen->get();
 
         if ($person_id != NULL)
@@ -22,31 +22,33 @@ class PersonenModel extends Model {
     }
 
     public function createPerson() {
-
-        $this->personen = $this->db->table('personen');
-        $this->personen->insert(array('vorname' => $_POST['vorname'],
-            'name' => $_POST['name'],
-            'strasse' => $_POST['strasse'],
-            'plz' => $_POST['plz'],
-            'ort' => $_POST['ort']));
-
+        $this->personen = $this->db->table('mitglieder');
+        $this->personen->insert(array('username' => $_POST['username'],
+            'email' => $_POST['email'],
+            'passwort' => password_hash($_POST['passwort'], PASSWORD_DEFAULT)));
     }
 
     public function updatePerson() {
 
-        $this->personen = $this->db->table('personen');
+        $this->personen = $this->db->table('mitglieder');
         $this->personen->where('personen.id', $_POST['id']);
-        $this->personen->update(array('vorname' => $_POST['vorname'],
-            'name' => $_POST['name'],
-            'strasse' => $_POST['strasse'],
-            'plz' => $_POST['plz'],
-            'ort' => $_POST['ort']));
+        $this->personen->update(array('username' => $_POST['username'],
+            'email' => $_POST['email'],
+            'passwort' => password_hash($_POST['passwort'], PASSWORD_DEFAULT)));
     }
 
     public function deletePerson() {
-        $this->personen = $this->db->table('personen');
+        $this->personen = $this->db->table('mitglieder');
         $this->personen->where('personen.id', $_POST['id']);
         $this->personen->delete();
     }
 
+    public function login(){
+        $this->personen = $this->db->table('mitglieder');
+        $this->personen->select('passwort');
+        $this->personen->where('mitglieder.email', $_POST['email']);
+        $result = $this->personen->get();
+
+        return $result->getRowArray();
+    }
 }
