@@ -30,7 +30,7 @@ class Database extends Config
      *
      * @var array
      */
-    public $tests = [
+    public $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
         'username' => 'root',
@@ -57,7 +57,7 @@ class Database extends Config
      * @var array
      */
 
-    public $default = [
+    public $tests = [
         'DSN'         => '',
         'hostname'    => 'sql96.your-server.de',
         'username'    => 'leonarb_1',
