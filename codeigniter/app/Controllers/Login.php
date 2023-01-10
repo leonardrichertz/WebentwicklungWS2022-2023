@@ -16,11 +16,13 @@ class Login extends BaseController
         if (isset($_POST['email']) && isset($_POST['passwort'])){
             if($this->PersonenModel->login()!= Null){
                 $passwort = $this->PersonenModel->login()['passwort'];
+                $id = $this->PersonenModel->login()['id'];
 
                 if (password_verify($_POST['passwort'], $passwort)){
                     session()->set('loggedin', true);
+                    session()->set('id', $id);
                     //$this->session()->set('loggedin', true);
-                    var_dump(session()->get('loggedin'));
+                    //var_dump(session()->get('loggedin'));
                     return redirect()->to(base_url(). '/todo');
                 }
             }

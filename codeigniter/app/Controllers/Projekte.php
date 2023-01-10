@@ -11,7 +11,7 @@ class Projekte extends BaseController
         $this->ProjekteModel = new ProjekteModel();
     }
 
-    public function getIndex()
+    public function index()
     {
         $data['projekte'] = $this->ProjekteModel->getProjekt();
         $data = [ 'title' => 'Projekte'];

@@ -13,7 +13,7 @@ class Personen extends BaseController
         $this->PersonenModel = new PersonenModel();
     }
 
-    public function getIndex()
+    public function index()
     {
         if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['passwort'])){
             $this->PersonenModel->createPerson();
@@ -36,6 +36,30 @@ class Personen extends BaseController
         echo view( 'pages/Personen_edit', $data);
     }
 
+    public function edit($id=0){
+        $data['title'] = 'Personen bearbeiten';
+        $id = $_POST['id'];
+        if ($id>0) {
+            $data['mitglied'] = $this->PersonenModel->getPersonen($id);
+        }
+        echo view( 'templates/ueberschrift.php', $data);
+        echo view( 'pages/Personen_edit', $data);
+    }
+
+    public function loeschen($id=0){
+        $data['title'] = 'Person löschen';
+        $id = $_POST['id'];
+        if ($id == session()->get('id')){
+            $data['mitglied'] = $this->PersonenModel->getPersonen($id);
+            echo view('templates/ueberschrift.php', $data);
+            echo view('pages/Personen_delete.php', $data);
+        }
+        else
+        {
+            return redirect()->to('personen');
+        }
+    }
+
     public function submit_edit(){
         if (isset($_POST['btnSpeichern'])){
             if (isset($_POST['id'])&&$_POST['id'] != ''){
@@ -44,16 +68,12 @@ class Personen extends BaseController
             else{
                 $this->PersonenModel->createPerson();
             }
-            return redirect()->to(base_url('personen/getIndex'));
+            return redirect()->to(base_url('personen/index'));
 
         }
         if (isset($_POST['btnLoeschen'])){
             $this->PersonenModel->deletePerson();
-            return redirect()->to(base_url('personen/getIndex'));
-        }
-        if (isset($_POST['btnAbbrechen'])){
-
-
+            return redirect()->to(base_url('personen'));
         }
     }
 }

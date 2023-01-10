@@ -25,7 +25,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -40,15 +40,27 @@ $routes->get('/', 'Login::index');
 $routes->get('/login', 'Login::index');
 $routes->get('/login/register', 'Login::register');
 $routes->get('personen/ced_edit', 'Personen::ced_edit');
-$routes->get('/todo', 'Todo::getIndex');
 $routes->get('login/logout', 'Login::logout');
+$routes->get('personen', 'Personen::index');
+$routes->get('personen/index', 'Personen::index');
 
+$routes->add('personen', 'Personen::index');
+$routes->add('login','Login::index');
+$routes->add('projekte', 'Projekte::index');
+$routes->add('todo','Todo::index');
+$routes->add('reiter','Reiter::index');
+$routes->add('aufgaben','Aufgaben::index');
+$routes->add('personen','Personen::index');
 $routes->add('personen/ced_edit/(:num)', 'Personen::ced_edit/$2');
 $routes->add('personen/ced_edit/(:num)/(:num)', 'Personen::ced_edit/$1/$2');
 $routes->add('personen', 'Personen::getIndex');
+
+$routes->post('personen/loeschen','Personen::loeschen');
+$routes->post('personen/submit_edit','Personen::submit_edit');
+$routes->post('personen/edit', 'Personen::edit');
 $routes->post('/login/index', 'Login::index');
-$routes->post('/login/register', 'Login::register');
-$routes->post('/personen/getIndex', 'Personen::getIndex');
+$routes->post('login/register', 'Login::register');
+$routes->post('/personen/index', 'Personen::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

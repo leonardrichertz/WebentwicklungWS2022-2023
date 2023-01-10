@@ -24,26 +24,40 @@
               <th>Name</th>
               <th>E-Mail</th>
               <th>In Projekt</th>
-              <th></th>
+                <th></th>
+                <th></th>
             </tr>
           </thead>
         </thead>
         <tbody>
-          <?php foreach ($mitglieder as $item){
-                echo '<tr>';
-                    echo '<td>'.$item['username'].'</td>';
-                    echo '<td>'.$item['email'].'</td>';
-                    echo ('<td><form><input type="checkbox" id="tabellecheckbox1"></form></td');
-                    echo ('<td style="text-align: right">');
-                    echo view('templates/EditUndDelete.php');
-                    echo ("</td>.</tr>");
-          }?>
+        <?php for ($i=0;$i<count($mitglieder);$i++):?>
+            <tr>
+                <td> <?=$mitglieder[$i]['username'] ?> </td>
+                <td> <?=$mitglieder[$i]['email'] ?> </td>
+                <td><input type="checkbox"> </td>
+                <td>
+                    <form action="personen/edit" method="post">
+                        <a>
+                            <input type="hidden" value="<?=$mitglieder[$i]['id']?>" name="id" id="id">
+                            <button class='btn' name="btnBearbeiten"><i class="fa-solid fa-pen-to-square" ></i> </button>
+                        </a>
+                    </form>
+                </td><td>
+                    <form action="personen/loeschen" method="post">
+                        <a>
+                            <input type="hidden" value="<?=$mitglieder[$i]['id']?>" name="id" id="id">
+                            <button class='btn' name="btnLoeschen"><i class="fa-solid fa-trash-can ms-3"></i></button>
+                        </a>
+                    </form>
+                </td>
+            </tr>
+        <?php endfor;?>
         </table>
       </div>
       <div class="row">
-        <form method="post" action="<?php echo site_url('personen/getIndex');?>">
+        <form method="post" action="<?php echo site_url('personen/index');?>">
           <div class="form-group">
-            <label><h4>Bearbeiten/Erstellen</h4></label>
+            <label><h4>Person Erstellen</h4></label>
               <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" placeholder="Username" class="form-control" id="username" name="username">

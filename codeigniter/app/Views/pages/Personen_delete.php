@@ -24,22 +24,15 @@
                 <label for="email" class="form-label">E-Mail-Adresse:</label>
                 <input type="text" class="form-control" id="email" name="email" value="<?=isset($mitglied['email']) ? $mitglied['email']: ''?>">
             </div>
-                    <? else{?>
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" id="passwort" name="passwort" value="<?=isset($mitglied['passwort']) ? $mitglied['passwort']: ''?>">
-                    </div>
-                    <div class="form-group">
-                        <?} ?>
-                </div>
-                <div class="mt-3"><button type="submit" name="btnSpeichern" class="btn btn-success">Speichern</button>
-                    <!-- Redirect bei Klick auf Abbrechen funktioniert noch nicht-->
-                    <a href="<? redirect()->to(base_url('personen'))?>">
-                        <button type="button" name="btnReset" class="btn btn-primary">Abbrechen</button>
-                    </a>
-                </div>
+            <div class="form-group">
+
+            </div>
+            <div class="mt-3"><button type="submit" name="btnLoeschen" class="btn btn-danger">Löschen</button>
+                <a href="personen/">
+                    <button type="button" name="btnReset" class="btn btn-primary">Abbrechen</button>
+                </a>
+            </div>
         </form>
     </div>
 </div>
 </body>
-
-}

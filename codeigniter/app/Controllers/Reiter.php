@@ -13,7 +13,7 @@ class Reiter extends BaseController
         $this->ReiterModel = new ReiterModel();
     }
 
-    public function getIndex()
+    public function index()
     {
         $data['reiter'] = $this->ReiterModel->getReiter();
         $data = [ 'title' => 'Reiter'];

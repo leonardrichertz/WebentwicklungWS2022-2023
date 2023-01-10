@@ -12,7 +12,7 @@ class Aufgaben extends BaseController
     $this->AufgabenModel = new AufgabenModel();
     }
 
-    public function getIndex(){
+    public function index(){
         $data = [ 'title' => 'Aufgaben'];
 
         echo view('templates/ueberschrift.php', $data);
