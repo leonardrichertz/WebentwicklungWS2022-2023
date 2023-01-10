@@ -37,9 +37,9 @@
             Einloggen
           </button>
           </br>
-          Noch nicht registriert? <a href="login/register">Registrierung</a> </br>
+          Noch nicht registriert? <a href="Register">Registrierung</a> </br>
           </br>
-          Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="todo"> Überspringen </a>
+          Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="Todo"> Überspringen </a>
         </form>
       </div>
       </br>

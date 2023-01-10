@@ -30,7 +30,7 @@ class Database extends Config
      *
      * @var array
      */
-    public $default = [
+    /*public $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
         'username' => 'root',
@@ -48,6 +48,26 @@ class Database extends Config
         'strictOn' => false,
         'failover' => [],
         'port'     => 3307,//wurde von 3006 zu 3007 geändert
+    ];*/
+    public $default = [
+        'DSN'         => '',
+        'hostname'    => 'sql96.your-server.de',
+        'username'    => 'leonarb_1',
+        'password'    => 'x9TEp1N82NYyLHcr',
+        'database'    => 'leonarb_db_todolist',
+        'DBDriver'    => 'MySQLi',
+        'DBPrefix'    => '',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
+        'pConnect'    => false,
+        'DBDebug'     => (ENVIRONMENT !== 'production'),
+        'charset'     => 'utf8',
+        'DBCollat'    => 'utf8_general_ci',
+        'swapPre'     => '',
+        'encrypt'     => false,
+        'compress'    => false,
+        'strictOn'    => false,
+        'failover'    => [],
+        'port'        => 3306,
+        'foreignKeys' => true,
     ];
 
     /**

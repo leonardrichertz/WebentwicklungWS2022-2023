@@ -23,7 +23,7 @@ class Login extends BaseController
                     session()->set('id', $id);
                     //$this->session()->set('loggedin', true);
                     //var_dump(session()->get('loggedin'));
-                    return redirect()->to(base_url(). '/todo');
+                    return redirect()->to(base_url(). '/Todo');
                 }
             }
         }
@@ -35,14 +35,14 @@ class Login extends BaseController
     public function logout(){
         //destroys the session
         session()->destroy();
-        return redirect()->to(base_url().'/login');
+        return redirect()->to(base_url().'/Login');
     }
 
     public function register(){
         if (isset($_POST['email']) && isset($_POST['username']) && isset($_POST['passwort']) && ($_POST['passwort'] == $_POST['passwort-bestätigt']))
         {
             $this->PersonenModel->createPerson();
-            return redirect()->to(base_url().'/login');
+            return redirect()->to(base_url().'/Login');
         }
 
         $data = [ 'title' => 'Registrierung'];

@@ -1,20 +1,20 @@
 <ul class="list-group">
     <li class="list-group-item">
-        <a href="login"> Login </a>
+        <a href="Login"> Login </a>
     </li>
     <li class="list-group-item">
-        <a href="projekte"> Projekte </a>
+        <a href="Projekte"> Projekte </a>
     </li>
     <li class="list-group-item">
-        <a href="todo"> Aktuelles Projekt </a>
+        <a href="Todo"> Aktuelles Projekt </a>
     </li>
     <li class="list-group-item" style="margin-left: 40px">
-        <a href="reiter"> Reiter </a>
+        <a href="Reiter"> Reiter </a>
     </li>
     <li class="list-group-item" style="margin-left: 40px">
-        <a href="aufgaben"> Aufgaben </a>
+        <a href="Aufgaben"> Aufgaben </a>
     </li>
     <li class="list-group-item" style="margin-left: 40px">
-        <a href="personen"> Mitglieder </a>
+        <a href="Personen"> Mitglieder </a>
     </li>
 </ul>

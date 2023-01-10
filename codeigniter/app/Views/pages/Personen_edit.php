@@ -33,7 +33,7 @@
                 </div>
                 <div class="mt-3"><button type="submit" name="btnSpeichern" class="btn btn-success">Speichern</button>
                     <!-- Redirect bei Klick auf Abbrechen funktioniert noch nicht-->
-                    <a href="<? redirect()->to(base_url('personen'))?>">
+                    <a href="'Personen'">
                         <button type="button" name="btnReset" class="btn btn-primary">Abbrechen</button>
                     </a>
                 </div>

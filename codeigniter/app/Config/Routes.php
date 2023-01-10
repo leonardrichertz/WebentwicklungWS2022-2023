@@ -36,14 +36,26 @@ $routes->setAutoRoute(false);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::index');
+/*
 $routes->get('/', 'Login::index');
 $routes->get('/login', 'Login::index');
 $routes->get('/login/register', 'Login::register');
 $routes->get('personen/ced_edit', 'Personen::ced_edit');
 $routes->get('login/logout', 'Login::logout');
 $routes->get('personen', 'Personen::index');
-$routes->get('personen/index', 'Personen::index');
+$routes->get('personen/index', 'Personen::index');*/
 
+$routes->get('/', 'Login::index');
+$routes->get('Login', 'Login::index');
+$routes->get('Aufgaben', 'Aufgaben::index');
+$routes->get('Todo', 'Todo::index');
+$routes->get('Projekte', 'Projekte::index');
+$routes->get('Personen', 'Personen::index');
+$routes->get('Reiter', 'Reiter::index');
+$routes->get('Register', 'Login::register');
+$routes->get('Logout', 'Login::logout');
+
+/*
 $routes->add('personen', 'Personen::index');
 $routes->add('login','Login::index');
 $routes->add('projekte', 'Projekte::index');
@@ -53,14 +65,16 @@ $routes->add('aufgaben','Aufgaben::index');
 $routes->add('personen','Personen::index');
 $routes->add('personen/ced_edit/(:num)', 'Personen::ced_edit/$2');
 $routes->add('personen/ced_edit/(:num)/(:num)', 'Personen::ced_edit/$1/$2');
-$routes->add('personen', 'Personen::getIndex');
+$routes->add('personen', 'Personen::getIndex');*/
+
+$routes->post('Personen', 'Personen::index');
 
 $routes->post('personen/loeschen','Personen::loeschen');
 $routes->post('personen/submit_edit','Personen::submit_edit');
 $routes->post('personen/edit', 'Personen::edit');
 $routes->post('/login/index', 'Login::index');
 $routes->post('login/register', 'Login::register');
-$routes->post('/personen/index', 'Personen::index');
+//$routes->post('/personen/index', 'Personen::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

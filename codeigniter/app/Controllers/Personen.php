@@ -56,7 +56,7 @@ class Personen extends BaseController
         }
         else
         {
-            return redirect()->to('personen');
+            return redirect()->to('Personen');
         }
     }
 
@@ -68,12 +68,12 @@ class Personen extends BaseController
             else{
                 $this->PersonenModel->createPerson();
             }
-            return redirect()->to(base_url('personen/index'));
+            return redirect()->to(base_url('Personen'));
 
         }
         if (isset($_POST['btnLoeschen'])){
             $this->PersonenModel->deletePerson();
-            return redirect()->to(base_url('personen'));
+            return redirect()->to(base_url('Personen'));
         }
     }
 }

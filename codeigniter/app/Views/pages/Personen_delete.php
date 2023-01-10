@@ -28,7 +28,7 @@
 
             </div>
             <div class="mt-3"><button type="submit" name="btnLoeschen" class="btn btn-danger">Löschen</button>
-                <a href="personen/">
+                <a href="<? redirect()->to('Personen')?>">
                     <button type="button" name="btnReset" class="btn btn-primary">Abbrechen</button>
                 </a>
             </div>

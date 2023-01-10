@@ -55,7 +55,7 @@
         </table>
       </div>
       <div class="row">
-        <form method="post" action="<?php echo site_url('personen/index');?>">
+        <form method="post" action="<?php echo site_url('Personen');?>">
           <div class="form-group">
             <label><h4>Person Erstellen</h4></label>
               <div class="form-group">

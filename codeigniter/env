@@ -39,13 +39,13 @@
 # DATABASE
 #--------------------------------------------------------------------
 
-database.default.hostname = sql96.your-server.de
-database.default.database = leonarb_db_todolist
-database.default.username = leonarb_1
-database.default.password = x9TEp1N82NYyLHcr
-database.default.DBDriver = MySQLi
+# database.default.hostname = sql96.your-server.de
+# database.default.database = leonarb_db_todolist
+# database.default.username = leonarb_1
+# database.default.password = x9TEp1N82NYyLHcr
+# database.default.DBDriver = MySQLi
 # database.default.DBPrefix =
-database.default.port = 3306
+# database.default.port = 3306
 
 # database.tests.hostname = localhost
 # database.tests.database = ci4_test
