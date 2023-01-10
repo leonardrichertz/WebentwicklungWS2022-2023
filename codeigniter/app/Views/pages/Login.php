@@ -13,7 +13,7 @@
     </div>
     <div class="col-8">
       <div class="row">
-        <form method="post" action="<?php echo site_url('login/index');?>">
+        <form method="post" action="Login">
           <div class="form-group">
             <label for="email">E-Mail/Benutzername</label>
             <input type="email" placeholder="Email-Adresse oder Benutzernamen eingeben" class="form-control" id="email" name="email">

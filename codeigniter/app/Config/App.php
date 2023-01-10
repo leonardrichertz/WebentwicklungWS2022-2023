@@ -24,7 +24,8 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/web_entwicklung/codeigniter/public/';
+    //public $baseURL = 'http://localhost/web_entwicklung/codeigniter/public/';
+    public $baseURL = 'http://leonardrichertz-web.de/';
 
     /**
      * --------------------------------------------------------------------------

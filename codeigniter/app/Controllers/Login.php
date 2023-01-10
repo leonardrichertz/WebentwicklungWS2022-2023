@@ -23,7 +23,7 @@ class Login extends BaseController
                     session()->set('id', $id);
                     //$this->session()->set('loggedin', true);
                     //var_dump(session()->get('loggedin'));
-                    return redirect()->to(base_url(). '/Todo');
+                    return redirect()->to(base_url('Todo'));
                 }
             }
         }

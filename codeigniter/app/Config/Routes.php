@@ -68,6 +68,7 @@ $routes->add('personen/ced_edit/(:num)/(:num)', 'Personen::ced_edit/$1/$2');
 $routes->add('personen', 'Personen::getIndex');*/
 
 $routes->post('Personen', 'Personen::index');
+$routes->post('Login','Login::index');
 
 $routes->post('personen/loeschen','Personen::loeschen');
 $routes->post('personen/submit_edit','Personen::submit_edit');
