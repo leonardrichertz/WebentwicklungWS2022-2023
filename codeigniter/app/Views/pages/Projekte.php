@@ -16,29 +16,27 @@
 
     <div class="col-8">
       <div class="row">
-        <form>
+        <form method="post" action="ead">
           <div class="form-group">
             <label for="projektauswahl"><h4>Projekt Auswählen:</h4></label>
-            <select class="form-control" id="projektauswahl">
-              <option value="String">- bitte auswählen -</option>
-              <option value="String">Projekt 1</option>
-              <option value="String">Projekt 2</option>
+            <select class="form-control" id="projektauswahl" name="projektauswahl">
+                <?php for($i=0;$i<count($projekte);$i++):?>
+              <option value="<?= $projekte[$i]['id'] ?>" > <?= $projekte[$i]['name']?> </option>
+                <?php endfor;?>
             </select>
           </div>
-        </form>
       </div>
       </br>
       <div class="row">
-        <form>
           <div class="form-group">
             <fieldset>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary" name="btnAuswaehlen">
                 Auswählen
               </button>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary" name="btnBearbeiten">
                 Bearbeiten
               </button>
-              <button type="submit" class="btn btn-danger">
+              <button type="submit" class="btn btn-danger" name="btnLoeschen">
                 Löschen
               </button>
             </fieldset>
@@ -47,26 +45,27 @@
       </div>
       </br>
       <div class="row">
-        <form>
+        <form action="ProjekteSubmit" method="post">
           <div class="form-group">
-            <label><h4>Projekt bearbeiten/erstellen:</h4></label>
-            <form>
+            <label><h4>Projekt erstellen:</h4></label>
               <div class="form-group">
                 <label for="projektname">Projektname:</label>
-                <input type="text" placeholder="Projekt" class="form-control" id="projektname">
+                <input type="text" placeholder="Projekt" class="form-control" id="projektname"
+                       name="projektname" <?php if(isset($_POST['btnBearbeiten'])){ ?> value="<?= $projekt['name']?>" <?php }?> >
               </div>
-            </form>
-            </br>
-            <form>
               <div class="form-group">
                 <label for="projektbeschreibung">Projektbeschreibung:</label>
-                <textarea name="projektbeschreibung" placeholder="Beschreibung" class="form-control" id="projektbeschreibung"></textarea>
+                <textarea name="projektbeschreibung" placeholder="Beschreibung" class="form-control" id="projektbeschreibung"><?php if(isset($_POST['btnBearbeiten'])){?><?= $projekt['beschreibung']?><?php }?></textarea>
               </div>
-            </form>
+              <?php if(isset($_POST['btnBearbeiten'])){ ?> <input type="hidden" name="projekt"  value="<?= $projekt['id'] ?>"  ><?php }?>
           </div>
-          </br>
             <fieldset class="mt-4">
-                <?php echo view("templates/SpeichernUndReset.html"); ?>
+                    <button type="submit" class="btn btn-primary">
+                        Speichern
+                    </button>
+                    <button type="reset" class="btn btn-info">
+                        Reset
+                    </button>
             </fieldset>
         </form>
       </div>

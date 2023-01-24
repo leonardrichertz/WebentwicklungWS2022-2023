@@ -47,5 +47,4 @@ Options All -Indexes
 # Disable server signature start
 	ServerSignature Off
 # Disable server signature end
-
 SetEnv CI_ENVIRONMENT development

@@ -34,7 +34,10 @@
             <tr>
                 <td> <?=$mitglieder[$i]['username'] ?> </td>
                 <td> <?=$mitglieder[$i]['email'] ?> </td>
-                <td><input type="checkbox"> </td>
+                <td><input type="checkbox" disabled
+                    <?php foreach ($mitglieder_in_projekt as $item):?>
+                            <?= ($item['id']==$mitglieder[$i]['id'])? 'checked':''?>
+                    <?php endforeach;?></td>
                 <td>
                     <form action="personen/edit" method="post">
                         <a>
@@ -74,7 +77,7 @@
               </div>
             </br>
               <div class="form-group">
-                <input type="checkbox" id="checkbox">
+                <input type="checkbox" id="checkbox" name="checkbox">
                 <label for="checkbox"> Dem Projekt zugeordnet</label>
               </div>
           </div>

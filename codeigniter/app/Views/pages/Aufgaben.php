@@ -10,42 +10,6 @@
 </head>
 <body>
 
-<?php
-$aufgaben=array(
-    array(
-        'bezeichnung' => 'HTML Datei erstellen',
-        'beschreibung' => 'HTML Datei erstellen',
-        'reiter' => 'ToDo',
-        'zustaendig' => 'Max Mustermann'
-    ),
-    array(
-        'bezeichnung' => 'CSS Datei erstellen',
-        'beschreibung' => 'CSS Datei erstellen',
-        'reiter' => 'ToDo',
-        'zustaendig' => 'Max Mustermann'
-    ),
-    array(
-        'bezeichnung' => 'PC eingeschaltet',
-        'beschreibung' => 'PC einschalten',
-        'reiter' => 'Erledigt',
-        'zustaendig' => 'Max Mustermann'
-    ),
-    array(
-        'bezeichnung' => 'Kaffe trinken',
-        'beschreibung' => 'Kaffe trinken',
-        'reiter' => 'Erledigt',
-        'zustaendig' => 'Petra Müller'
-    ),
-    array(
-        'bezeichnung' => 'Für die Uni lernen',
-        'beschreibung' => 'Für die Uni lernen',
-        'reiter' => 'Verschoben',
-        'zustaendig' => 'Max Mustermann'
-    ),
-);
-
-//var_dump($aufgaben);
-?>
 
 <div class="container-fluid">
     <div class="row">
@@ -54,99 +18,93 @@ $aufgaben=array(
             <?php echo view("templates/menu.php"); ?>
         </div>
 
+
         <div class="col-8">
+            <table class="table mb-5 ">
+                <thead>
+                <tr class="bg-light">
+                    <th scope="col" class="col-3">Aufgabenbezeichnung</th>
+                    <th scope="col" class="col-3">Beschreibung der Aufgabe</th>
+                    <th scope="col" class="col-2">Reiter</th>
+                    <th scope="col" class="col-2">Zuständig</th>
+                    <th scope="col" class="col-1"></th>
+                    <th scope="col" class="col-1"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($aufgaben as $item): ?>
 
-            <div class="row">
-                <table class="table table-responsive">
-                    <thead class="table-light">
                     <tr>
-                        <th>Aufgabenbezeichnung:</th>
-                        <th>Beschreibung der Aufgabe:</th>
-                        <th>Reiter:</th>
-                        <th>Zuständig:</th>
-                        <th></th>
+                        <td><?=$item['name'] ?> </td>
+                        <td><?= $item['beschreibung']?></td>
+                        <td><?= $item['reiter'] ?></td>
+                        <td><?= $item['zuständig'] ?></td>
+                        <td><form action="Aufgaben" method="post">
+                                    <input type="hidden" value="<?=$item['id']?>" name="id" id="id">
+                                    <button class='btn' name="btnBearbeiten"><i class="fa-solid fa-pen-to-square" ></i> </button>
+                            </form>
+                        </td><td>
+                            <form action="Aufgaben" method="post">
+                                    <input type="hidden" value="<?=$item['id']?>" name="id" id="id">
+                                    <button class='btn' name="btnLoeschen"><i class="fa-solid fa-trash-can ms-3"></i></button>
+                            </form>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody>
-
-                    <?php
-                    foreach($aufgaben as $aufgabe): ?>
-                        <tr>
-                            <td> <?php echo $aufgabe['bezeichnung'] ?></td>
-                            <td> <?php echo $aufgabe['beschreibung'] ?></td>
-                            <td> <?php echo $aufgabe['reiter'] ?></td>
-                            <td> <?php echo $aufgabe['zustaendig'] ?></td>
-                            <td style="text-align: right"> <?php echo view("templates/EditUndDelete.html"); ?></td>
-                        </tr>
-                    <?php endforeach;?>
-
-                    </tbody>
-                </table>
+                <?php endforeach?>
+                </tbody>
+            </table>
+            <div class="h3 mt-5">
+                Bearbeiten/Erstellen:
             </div>
+            <form action="aufgaben_submit_edit" method="post">
+                <input type="hidden" name="id" id="id" value="<?= (isset($aufgabe['id']))? $aufgabe['id'] : ''  ?>">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Aufgabenbezeichnung</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Aufgabe" value="<?= (isset($aufgabe['name']))? $aufgabe['name'] : ''  ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Beschreibung der Aufgabe</label>
+                    <textarea placeholder="Beschreibung" class="form-control" id="beschreibung" name="beschreibung" rows="3"><?= (isset($aufgabe['beschreibung']))? $aufgabe['beschreibung'] : ''  ?></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Erstellungsdatum</label>
+                    <input type="date" class="form-control" id="erstellungsdatum" name="erstellungsdatum" placeholder="01.01.2023" value="<?= (isset($aufgabe['erstellungsdatum']))? $aufgabe['erstellungsdatum'] : ''  ?>" >
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">f&auml;llig bis:</label>
+                    <input type="date" class="form-control" id="fälligkeitsdatum" name="fälligkeitsdatum" placeholder="31.12.2023" value="<?= (isset($aufgabe['fälligkeitsdatum']))? $aufgabe['fälligkeitsdatum'] : ''  ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Zugeh&ouml;riger Reiter:</label>
+                    <select class="form-select" name="reiter" id="reiter" aria-label="Default select example">
+                        <option value="<?= (isset($aufgabe['reiter']))? $aufgabe['reiterid'] : '0'  ?>" disabled selected><?= (isset($aufgabe['reiter']))? $aufgabe['reiter'] : '-bitte wählen-'  ?></option>
+                        <?php foreach ($reiter as $item):?>
+                            <option value="<?= $item['id']?>"><?= $item['name']?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Zust&auml;ndig:</label>
+                    <select class="form-select" name="mitgliederids[]" id="mitgliederids[]" multiple size="5">
+                        <?php foreach ($mitglieder as $item):?>
+                            <option
 
-            <div class="row">
-                <form>
-                    <div class="form-group">
-                        <label><h4>Bearbeiten/Erstellen</h4></label>
-                        <form>
-                            <div class="form-group">
-                                <label for="aufgabenbezeichnung">Aufgabenbezeichnung:</label>
-                                <input type="text" placeholder="Aufgabe" class="form-control" id="aufgabenbezeichnung">
-                            </div>
-                        </form>
-                        </br>
-                        <form>
-                            <div class="form-group">
-                                <label for="beschreibung">Beschreibung der Aufgabe:</label>
-                                <textarea name="beschreibung" placeholder="Beschreibung" class="form-control"
-                                          id="beschreibung"></textarea>
-                            </div>
-                        </form>
-                        </br>
-                        <form>
-                            <div class="form-group">
-                                <label for="erstellungsdatum">Erstellungsdatum:</label>
-                                <input type="text" placeholder="01.01.19" class="form-control" id="erstellungsdatum">
-                            </div>
-                        </form>
-                        </br><form>
-                            <div class="form-group">
-                                <label for="faelligbis">fällig bis:</label>
-                                <input type="text" placeholder="01.01.19" class="form-control" id="faelligbis">
-                            </div>
-                        </form>
-                        </br>
-                        <form>
-                            <div class="form-group">
-                                <label for="zugehoerigerreiter">Zugehöriger Reiter:</label>
-                                <select class="form-control" id="zugehoerigerreiter">
-                                    <option value="String">ToDo</option>
-                                    <option value="String">Erledigt</option>
-                                    <option value="String">Verschoben</option>
-                                </select>
-                            </div>
-                        </form>
-                        </br>
-                        <form>
-                            <div class="form-group">
-                                <label for="zustaendig">Zuständig:</label>
-                                <select class="form-control" id="zustaendig">
-                                    <option value="String">Max Mustermann</option>
-                                    <option value="String">Petra Müller</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    </br>
-                    <fieldset class="mt-4">
-                        <?php echo view("templates/SpeichernUndReset.html"); ?>
-                    </fieldset>
-                </form>
-            </div>
-            </br>
+                                <?php  if (isset($aufgabenmitglieder))foreach ($aufgabenmitglieder as $item2):?>
+
+                                    <?=($item['id']==$item2['mitgliederid'])? 'class="bg-primary"' : '';?>
+
+
+                                <?php endforeach  ?>
+                                    value="<?= $item['id']?>"><?= $item['username']?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div><button type="submit" name="btnSpeichern" id="btnSpeichern" class="btn btn-primary">Speichern</button>
+                    <button type="submit" name="btnReset" id="btnReset" class="btn btn-success">Reset</button>
+                </div>
+
         </div>
-
+        </form>
     </div>
-</div>
 </body>
 </html>

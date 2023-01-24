@@ -38,7 +38,28 @@ class Validation extends BaseConfig
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
+
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+
+    public $loginvalidieren = [
+        'email'=> 'required|valid_email',
+        'passwort' => 'required',
+        'checkbox' => 'required'
+    ];
+
+    public $loginvalidieren_errors = [
+        'email'=>[
+            'valid_email' => 'Bitte geben Sie eine gültige E-Mail Adresse an.',
+            'required'=> 'Bitte geben Sie ihre E-Mail Adresse ein'
+        ],
+        'passwort'=>[
+            'required'=>'Bitte geben Sie ihr Passwort ein.'
+        ],
+        'checkbox'=>[
+            'required'=> 'Um diese Anwendung zu nutzen, müssen Sie unsere AGBs akzeptieren.'
+        ]
+    ];
+
 }

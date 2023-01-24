@@ -24,7 +24,10 @@
                 <label for="email" class="form-label">E-Mail-Adresse:</label>
                 <input type="text" class="form-control" id="email" name="email" value="<?=isset($mitglied['email']) ? $mitglied['email']: ''?>">
             </div>
-
+            <div class="form-group">
+                <input type="checkbox" id="checkbox" name="checkbox">
+                <label for="checkbox"> Dem Projekt zugeordnet</label>
+            </div>
                     <div class="form-group">
                         <input type="hidden" class="form-control" id="passwort" name="passwort" value="<?=isset($mitglied['passwort']) ? $mitglied['passwort']: ''?>">
                     </div>
@@ -32,9 +35,7 @@
                 </div>
                 <div class="mt-3"><button type="submit" name="btnSpeichern" class="btn btn-success">Speichern</button>
                     <!-- Redirect bei Klick auf Abbrechen funktioniert noch nicht-->
-                    <a href="'Personen'">
-                        <button type="button" name="btnReset" class="btn btn-primary">Abbrechen</button>
-                    </a>
+                    <button type="submit" name="btnAbbrechen" id="btnAbbrechen" class="btn btn-primary">Abbrechen</button>
                 </div>
         </form>
     </div>

@@ -26,64 +26,52 @@
                         <th>Name</th>
                         <th>Beschreibung</th>
                         <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>ToDo</td>
-                        <td>Dinge die erledigt werden müssen</td>
-                        <td style="text-align: right">
-                            <?php echo view('templates/EditUndDelete.php');?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Erledigt</td>
-                        <td>Dinge die erledigt sind</td>
-                        <td style="text-align: right">
-                            <?php  echo view('templates/EditUndDelete.php'); ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Verschoben</td>
-                        <td>Dinge die später erledigt werden</td>
-                        <td style="text-align: right">
-                            <?php  echo view('templates/EditUndDelete.php'); ?>
-                        </td>
-                    </tr>
+                    <?php foreach($reiter as $item): ?>
+                        <tr>
+                            <td> <?php echo $item['name'] ?></td>
+                            <td> <?php echo $item['beschreibung'] ?></td>
+                            <td style="text-align: right">
+                                <form action="reiter_edit_delete" method="post">
+                                    <input type="hidden" value="<?=$item['id']?>" name="id" id="id">
+                                    <button type="submit" class='btn' name="btnBearbeiten">
+                                        <i class="fa-solid fa-pen-to-square" ></i>
+                                    </button>
+                            </td>
+                            <td style="text-align: right">
+                                <button type="submit" class='btn' name="btnLoeschen">
+                                    <i class="fa-solid fa-trash-can ms-3"></i>
+                                </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
 
             </br>
             </br>
-            <div class="row">
-                <form>
-                    <div class="form-group">
-                        <label><h4>Bearbeiten/Erstellen</h4></label>
-                        <form>
-                            <div class="form-group">
-                                <label for="reiterbezeichnung">Bezeichnung des Reiters:</label>
-                                <input type="text" placeholder="Reiter" class="form-control" id="reiterbezeichnung">
-                            </div>
-                        </form>
-                        </br>
-                        <form>
-                            <div class="form-group">
-                                <label for="beschreibung">Beschreibung:</label>
-                                <textarea name="beschreibung" placeholder="Beschreibung" class="form-control"
-                                          id="beschreibung"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    </br>
-                    <fieldset class="mt-4">
-                        <?php echo view('templates/SpeichernUndReset.html');?>
-                    </fieldset>
-                </form>
+            <div class="h3 mt-5">
+                <form action="reiter_submit" method="post">
+                    <?= (isset($aktueller_reiter['id']))? 'Bearbeiten': 'Erstellen' ?>
             </div>
-            </br>
-        </div>
-
+            <input type="hidden" id="id" name="id" value="<?=(isset($aktueller_reiter['id'])? $aktueller_reiter['id'] : '') ?>">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Bezeichnung des Reiters:</label>
+                <input type="text" class="form-control" id="name" name="name" value="<?= (isset($aktueller_reiter['name']))? $aktueller_reiter['name'] : '' ?>" placeholder="Reiter">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Beschreibung</label>
+                <textarea placeholder="Beschreibung" class="form-control" id="beschreibung" name="beschreibung" rows="3"><?= (isset($aktueller_reiter['beschreibung']))? $aktueller_reiter['beschreibung'] : '' ?></textarea>
+            </div>
+            <div><button type="submit" name="btnSpeichern" id="btnSpeichern" class="btn btn-primary">Speichern</button>
+                <button type="submit" name="btnReset" id="btnReset" class="btn btn-success">Reset</button>
+            </div>
+            </form>
     </div>
 </div>
 </body>

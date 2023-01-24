@@ -67,8 +67,15 @@ $routes->add('personen/ced_edit/(:num)', 'Personen::ced_edit/$2');
 $routes->add('personen/ced_edit/(:num)/(:num)', 'Personen::ced_edit/$1/$2');
 $routes->add('personen', 'Personen::getIndex');*/
 
+$routes->post('Projekte','Projekte::index');
 $routes->post('Personen', 'Personen::index');
 $routes->post('Login','Login::index');
+$routes->post('ead','Projekte::projekte_edit_auswahl_delete');
+$routes->post('ProjekteSubmit','Projekte::projekte_submit');
+$routes->post('aufgaben_submit_edit','Aufgaben::submit_edit');
+$routes->post('Aufgaben','Aufgaben::index');
+$routes->post('reiter_edit_delete', 'Reiter::reiter_edit_delete');
+$routes->post('reiter_submit', 'Reiter::reiter_submit');
 
 $routes->post('personen/loeschen','Personen::loeschen');
 $routes->post('personen/submit_edit','Personen::submit_edit');
